@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: top;
+    /* outline: 1px dotted red; */
+}
+
+#wrapper{
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.page_header{
+    width: 100%;
+    text-align: center;
+}
+
+.main_content{
+    width: 100%;
+}
+
+.db_table_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.db_table{
+    margin: 15px;
+    
+}
+
+.db_table_display{
+    border: 1px solid black;
+    border-spacing: 0;
+}
+
+.db_table_display th{
+    border: 1px solid black;
+    padding: 3px 5px;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.db_table_display tr{
+    border-spacing: 0;
+    border: 1px solid black;
+}
+
+.db_table_display td{
+    border: 1px solid black;
+    border-spacing: 0;
+    padding: 2px 5px 2px 3px;
+}
+
+.to_center{
+    text-align: center;
+}
+
+.registration_form_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid black;
+}
+
+.new_user_form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_header{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.user_information{
+    width: 60%;
+    display: flex;
+}
+
+.side_split{
+    width: 50%;
+}
+
+.user_information_inputs{
+    margin: 15px;
+    display: flex;
+    justify-content:flex-end;
+    text-align: center;
+}
+
+.user_information_inputs label{
+    width: 35%
+}
+
+.form_footer{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.add_btn{
+    width:  10%;
+}

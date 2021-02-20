@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header class="page_header">
+            <h1>All the Users</h1>
+        </header>
+        <main class="main_content">
+            <div class="db_table_container">
+                <div class="db_table">
+                    <table class="db_table_display">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                        {% for user in all_users %}
+                        <tr>
+                            <td class="to_center">{{ user.id }}</td>
+                            <td>{{ user.first_name }} {{ user.last_name }}</td>
+                            <td>{{ user.email_address }}</td>
+                            <td class="to_center">{{ user.age }}</td>
+                            <td class="to_center">
+                                <form action="/delete_user/{{user.id}}"
+                                    class="user_actions" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit">X</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="registration_form_container">
+                <form action="/create_user" method="POST" class="new_user_form">
+                    {% csrf_token %}
+                    <header class="form_header">
+                        <h3>Add a User</h3>
+                    </header>
+                    <div class="user_information">
+                        <div class="side_split">
+                            <div class="user_information_inputs">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" name="first_name" maxlength="255"
+                                    required>
+                            </div>
+                            <div class="user_information_inputs">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" name="last_name" maxlength="255"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="side_split">
+                            <div class="user_information_inputs">
+                                <label for="email_address">Email:</label>
+                                <input type="email" name="email_address"
+                                    maxlength="255" required>
+                            </div>
+                            <div class="user_information_inputs">
+                                <label for="age">Age:</label>
+                                <input type="number" name="age" maxlength="3"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="form_footer">
+                        <button type="submit" class="add_btn">Add</button>
+                    </footer>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
